@@ -59,7 +59,6 @@ int main(int argc, char *argv[]) {
 			} 
 			cmdRun(argc, argv);
 			cmdLine = strtok_r(NULL, cmdNulls, &next);
-			//printf("\n");
 		}
 	}
 	return 0;
