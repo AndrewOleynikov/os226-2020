@@ -34,17 +34,17 @@ void cmdRun(int argc, char *argv[]) {
 }
 
 int main(int argc, char *argv[]) {
-	while (true) {
+
+	char buffer[256];
+	while (fgets(buffer, sizeof(buffer)/sizeof(char), stdin)) {
 		char *next = NULL;
-		char bufer[256];
-		fgets(bufer, sizeof(bufer), stdin);
 		char *cmdNulls = ";\n";
-		char* s = bufer;
+		char* s = buffer;
 		while (*s == ' ') {
 			s++;
 		}
-		strcpy(bufer, s);
-		char *cmdLine = strtok_r(bufer, cmdNulls, &next);
+		strcpy(buffer, s);
+		char *cmdLine = strtok_r(buffer, cmdNulls, &next);
 		while (cmdLine != NULL) {
 			char *nextIn = NULL;
 			char *argNulls = " ";
